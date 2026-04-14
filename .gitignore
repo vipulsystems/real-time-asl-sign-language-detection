@@ -1,0 +1,42 @@
+# Node
+node_modules/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Model files (optional - remove if you want to upload model)
+*.h5
+
+# Temporary files
+*.tmp
+*.swp
+
+# Coverage
+coverage/
+
+ai-training/dataset/
+
+ai-training/dataset/
+*.h5
