@@ -451,7 +451,7 @@ Full Stack Developer | AI & Computer Vision Engineer
 
 ---
 
-📫 Email: vipul.paighan@gmail.com  
+📫 Email: vipulpaighan.1988@gmail.com  
 🔗 GitHub: https://github.com/vipulsystems  
 
 ---
