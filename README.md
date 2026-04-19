@@ -1,12 +1,12 @@
-<h1 align="center">🚀 Real-Time ASL Sign Language Detection System</h1>
+<h1 align="center">Real-Time ASL Sign Language Detection System</h1>
 
-🚀 Real-time AI-powered gesture recognition  
-🧠 Built with TensorFlow, FastAPI, and React  
-⚡ Converts sign language into text and speech instantly  
+Real-time AI-powered gesture recognition  
+Built with TensorFlow, FastAPI, and React  
+Converts sign language into text and speech instantly  
 
 An AI-powered system that uses computer vision and deep learning to recognize American Sign Language (ASL) gestures in real time and convert them into text and speech.
 
-💡 Designed as a real-world AI application for assistive communication and human-computer interaction.
+Designed as a real-world AI application for assistive communication and human-computer interaction.
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
@@ -16,13 +16,13 @@ An AI-powered system that uses computer vision and deep learning to recognize Am
 
 ---
 
-## 🔥 Live Demo
+## Live Demo
 
-🚧 Live demo coming soon (deployment in progress)
+Live demo coming soon (deployment in progress)
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This project demonstrates a **full-stack AI system** integrating:
 
@@ -35,7 +35,7 @@ It enables real-time interaction between humans and machines using **gesture-bas
 
 ---
 
-## ⭐ Project Highlights
+## Project Highlights
 
 - Real-time gesture recognition system
 - Real-time webcam-based gesture detection
@@ -45,15 +45,15 @@ It enables real-time interaction between humans and machines using **gesture-bas
 
 ---
 
-## 🔍 Keywords
+## Keywords
 
 Sign Language Detection • ASL Recognition • Gesture Recognition • Computer Vision Project • Deep Learning Application • Real-Time AI System • TensorFlow CNN • FastAPI Backend • React Frontend
 
 ---
 
-## 🚀 Features
+## Features
 
-### 🔤 Alphabet Trainer
+### Alphabet Trainer
 
 Interactive module to learn ASL alphabet gestures visually.
 
@@ -63,7 +63,7 @@ Interactive module to learn ASL alphabet gestures visually.
 
 ---
 
-### 🎥 Gesture Practice (AI Recognition)
+### Gesture Practice (AI Recognition)
 
 Real-time AI-based gesture recognition using webcam input.
 
@@ -82,7 +82,7 @@ Output includes:
 
 ---
 
-### 📖 Sign Language Dictionary
+### Sign Language Dictionary
 
 Search and explore sign gestures.
 
@@ -93,13 +93,13 @@ Search and explore sign gestures.
 
 ---
 
-### 🔊 Text-To-Speech
+### Text-To-Speech
 
 Converts detected gestures into real-time spoken audio using Google Text-To-Speech (gTTS).
 
 ---
 
-## 🧠 AI Detection Pipeline
+## AI Detection Pipeline
 
 ```text
 Webcam Frame
@@ -119,7 +119,7 @@ Output Letter + Confidence
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
 ```text
 React Frontend
@@ -140,7 +140,7 @@ Text → Speech Output
 
 ---
 
-## 📊 Model Performance
+## Model Performance
 
 - Model Type: CNN (TensorFlow/Keras)
 - Framework: TensorFlow / Keras
@@ -151,7 +151,7 @@ Text → Speech Output
 
 ---
 
-## ⚡ Challenges & Solutions
+## Challenges & Solutions
 
 ### 1. Prediction Flickering
 - **Problem:** Unstable outputs frame-by-frame  
@@ -171,7 +171,7 @@ Text → Speech Output
 
 ---
 
-## 🧪 Real-World Engineering Value
+## Real-World Engineering Value
 
 This project demonstrates:
 
@@ -183,7 +183,7 @@ This project demonstrates:
 
 ---
 
-## 💼 Use Cases
+## Use Cases
 
 - Assistive communication system for hearing and speech-impaired individuals  
 - Educational ASL learning platform  
@@ -191,7 +191,7 @@ This project demonstrates:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - React  
@@ -217,7 +217,7 @@ This project demonstrates:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 sign-language-translator
@@ -311,9 +311,9 @@ sign-language-translator
 
 ---
 
-## ⚙️ Installation
+## Installation
 
-### 1️⃣ Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/vipulsystems/real-time-asl-sign-language-detection.git
@@ -322,7 +322,7 @@ cd real-time-asl-sign-language-detection
 
 ---
 
-### 🖥 Backend Setup
+### Backend Setup
 
 ```bash
 cd backend
@@ -353,9 +353,9 @@ http://localhost:8000
 
 ---
 
-### 🌐 Frontend Setup
+### Frontend Setup
 
-> ⚠️ Ensure backend is running before starting frontend
+> Ensure backend is running before starting frontend
 
 ```bash
 cd frontend
@@ -368,7 +368,7 @@ http://localhost:5173
 
 ---
 
-## 🧪 Usage
+## Usage
 
 1. Open the application in your browser
 2. Navigate to the **Alphabet Trainer**
@@ -379,7 +379,7 @@ http://localhost:5173
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Home Page
 
@@ -399,7 +399,7 @@ http://localhost:5173
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * Real-time continuous gesture detection
 * Word-level sign recognition
@@ -410,7 +410,7 @@ http://localhost:5173
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome.
 
@@ -422,48 +422,48 @@ Contributions are welcome.
 
 ---
 
-## 📜 License
+## License
 
 MIT License
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Vipul Paighan**  
 Full Stack Developer | AI & Computer Vision Engineer  
 
-### 🔧 Core Expertise
+### Core Expertise
 - Backend: Spring Boot, FastAPI, REST APIs  
 - Frontend: React.js, Tailwind CSS  
 - AI/ML: TensorFlow, OpenCV, NLP, GenAI APIs  
 - Databases: MySQL, PostgreSQL  
 
-### ⚙️ Tools & Technologies
+### Tools & Technologies
 - Git, GitHub  
 - Docker  
 - Postman  
 - Selenium, BeautifulSoup  
 
-### 📊 Additional Skills
+### Additional Skills
 - Data Analysis (Pandas, NumPy)  
 - Power BI, Tableau  
 
 ---
 
-📫 Email: vipulpaighan.1988@gmail.com  
-🔗 GitHub: https://github.com/vipulsystems  
+Email: vipulpaighan.1988@gmail.com  
+GitHub: https://github.com/vipulsystems  
 
 ---
 
-🚀 Focused on building scalable AI-powered applications and solving real-world problems using modern technologies.
+Focused on building scalable AI-powered applications and solving real-world problems using modern technologies.
 
 ---
 
-## ⭐ Support
+## Support
 
 If you like this project:
 
-⭐ Star the repository  
-🍴 Fork the repository  
-📢 Share the project  
+Star the repository  
+Fork the repository  
+Share the project  
