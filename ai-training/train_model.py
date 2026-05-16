@@ -1,68 +1,55 @@
-import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import cv2
+import mediapipe as mp
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+import joblib
 import os
+
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands(static_image_mode=True)
 
 DATASET_PATH = "dataset"
 
-IMG_SIZE = 64
-BATCH_SIZE = 32
+X, y = [], []
 
-train_datagen = ImageDataGenerator(
-    rescale=1./255,
-    validation_split=0.2
-)
+for label in os.listdir(DATASET_PATH):
+    folder = os.path.join(DATASET_PATH, label)
+    if not os.path.isdir(folder):
+        continue
 
-train_data = train_datagen.flow_from_directory(
-    DATASET_PATH,
-    target_size=(IMG_SIZE, IMG_SIZE),
-    batch_size=BATCH_SIZE,
-    class_mode="categorical",
-    subset="training"
-)
+    for img_name in os.listdir(folder)[:200]:
+        path = os.path.join(folder, img_name)
+        img = cv2.imread(path)
+        if img is None:
+            continue
 
-val_data = train_datagen.flow_from_directory(
-    DATASET_PATH,
-    target_size=(IMG_SIZE, IMG_SIZE),
-    batch_size=BATCH_SIZE,
-    class_mode="categorical",
-    subset="validation"
-)
+        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        res = hands.process(rgb)
 
-model = tf.keras.Sequential([
-    
-    tf.keras.layers.Conv2D(32,(3,3),activation="relu",input_shape=(64,64,3)),
-    tf.keras.layers.MaxPooling2D(),
+        if not res.multi_hand_landmarks:
+            continue
 
-    tf.keras.layers.Conv2D(64,(3,3),activation="relu"),
-    tf.keras.layers.MaxPooling2D(),
+        lm = res.multi_hand_landmarks[0]
 
-    tf.keras.layers.Conv2D(128,(3,3),activation="relu"),
-    tf.keras.layers.MaxPooling2D(),
+        # normalize landmarks (important for consistency)
+        xs = [p.x for p in lm.landmark]
+        ys = [p.y for p in lm.landmark]
+        min_x, min_y = min(xs), min(ys)
 
-    tf.keras.layers.Flatten(),
+        features = []
+        for p in lm.landmark:
+            features.append(p.x - min_x)
+            features.append(p.y - min_y)
 
-    tf.keras.layers.Dense(128,activation="relu"),
+        X.append(features)
+        y.append(label)
 
-    tf.keras.layers.Dense(train_data.num_classes,activation="softmax")
+print("Samples:", len(X))
 
-])
-
-model.compile(
-    optimizer="adam",
-    loss="categorical_crossentropy",
-    metrics=["accuracy"]
-)
-
-model.summary()
-
-model.fit(
-    train_data,
-    validation_data=val_data,
-    epochs=15
-)
+model = RandomForestClassifier(n_estimators=150)
+model.fit(X, y)
 
 os.makedirs("../backend/app/models", exist_ok=True)
+joblib.dump(model, "../backend/app/models/landmark_model.pkl")
 
-model.save("../backend/app/models/asl_model.h5")
-
-print("Model training completed and saved.")
+print("✅ Saved: backend/app/models/landmark_model.pkl")

@@ -1,42 +1,59 @@
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
-from app.services.gesture_detection import detect_sign
+from app.services.gesture_detection import detect_landmark_sign as detect_sign
 from app.services.sentence_builder import clear_sentence, update_sentence
 from app.services.tts_service import speak
 
 router = APIRouter()
 
+LETTER_TO_WORD = {
+    "A": "Hello 👋",
+    "B": "Good Morning 🌅",
+    "C": "Good Evening 🌇",
+    "D": "How are you? 🙂",
+    "E": "I am fine 👍",
+    "F": "Thank You 🙏",
+    "G": "Sorry 😔",
+    "H": "Please 🙏",
+    "I": "Yes 👍",
+    "J": "No ❌",
+    "K": "Good Job 👏",
+    "L": "All the Best 🎯"
+}
+
 @router.post("/detect")
 async def detect(file: UploadFile = File(...)):
-    # 1. Read image bytes
     image_bytes = await file.read()
     if not image_bytes:
         raise HTTPException(status_code=400, detail="Empty image received")
 
-    # 2. Inference: Get the character and confidence score
     sign, confidence = detect_sign(image_bytes)
-    
-    # 3. State Management: Append to the current running sentence
     sentence = update_sentence(sign)
-    
+
+    text = LETTER_TO_WORD.get(str(sign).upper(), "") 
+
     return {
-        "sign": sign, 
-        "confidence": round(float(confidence), 2), 
+        "sign": sign,
+        "text": text,
+        "confidence": round(float(confidence), 2),
         "sentence": sentence
     }
+
 
 @router.post("/practice-check")
 async def practice(file: UploadFile = File(...), target: str = Form(...)):
     image_bytes = await file.read()
     
-    # Check what the user is actually doing vs what they should be doing
     sign, confidence = detect_sign(image_bytes)
     
+    text = LETTER_TO_WORD.get(str(sign).upper(), "")
+
     return {
-        "detected": sign,
-        "target": target,
-        "correct": str(sign).strip().upper() == str(target).strip().upper(),
-        "confidence": round(float(confidence), 2)
-    }
+    "detected": sign,
+    "text": text, 
+    "target": target,
+    "correct": str(sign).strip().upper() == str(target).strip().upper(),
+    "confidence": round(float(confidence), 2)
+}
 
 @router.post("/speak")
 async def text_to_speech(text: str):

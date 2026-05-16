@@ -1,25 +1,28 @@
 def translate_sign(sign):
     """
-    Maps detected gestures to characters or system commands.
+    Maps detected gestures to characters, words, or system commands.
     """
-    
-    # This dictionary can be expanded to include whole words 
-    # if your model is trained on ASL Word signs.
-    asl_dict = {
-        "A": "A", "B": "B", "C": "C", "D": "D", "E": "E",
-        "F": "F", "G": "G", "H": "H", "I": "I", "J": "J",
-        "K": "K", "L": "L", "M": "M", "N": "N", "O": "O",
-        "P": "P", "Q": "Q", "R": "R", "S": "S", "T": "T",
-        "U": "U", "V": "V", "W": "W", "X": "X", "Y": "Y",
-        "Z": "Z",
-        
-        # Mapping specific "static" letters to functional commands
+
+    if not sign:
+        return None
+
+    sign = str(sign).upper()
+
+    mapping = {
+        # 🔤 Alphabets
+        **{chr(i): chr(i) for i in range(65, 91)},  # A-Z
+
+        # 🔧 Functional Commands
         "SPACE": " ",
         "BACKSPACE": "DELETE",
-        "CLEAR": "RESET"
+        "CLEAR": "RESET",
+
+        # 🔥 Special Gestures (future-ready)
+        "THUMBS_UP": "All the Best 👍",
+        "ILY": "I Love You ❤️",
+        "HELLO": "Hello 👋",
+        "THANKYOU": "Thank You 🙏",
+        "NAMASTE": "Namaste 🙏"
     }
 
-    # Use .upper() to ensure we match the dictionary keys
-    result = asl_dict.get(str(sign).upper(), None)
-    
-    return result
+    return mapping.get(sign, None)

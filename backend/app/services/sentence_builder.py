@@ -15,29 +15,41 @@ def clear_sentence():
 
 def update_sentence(sign):
     global current_sentence, last_confirmed_letter
-    
+
     command = translate_sign(sign)
-    
+
     if not command:
+        prediction_buffer.clear()
         last_confirmed_letter = None
         return current_sentence
 
-    # HANDLE FUNCTIONAL COMMANDS
-    if command == "DELETE":
-        if last_confirmed_letter != "DELETE": # Prevent rapid-fire deletion
-            current_sentence = current_sentence[:-1]
-            last_confirmed_letter = "DELETE"
-        return current_sentence
-        
-    if command == "RESET":
-        current_sentence = ""
+    # 🔥 ADD TO BUFFER
+    prediction_buffer.append(command)
+
+    # 🔥 STABILITY CHECK
+    if len(prediction_buffer) < prediction_buffer.maxlen:
         return current_sentence
 
-    # HANDLE STANDARD TYPING
-    # (Existing confirmation logic here...)
-    if command != last_confirmed_letter:
-        current_sentence += command
-        last_confirmed_letter = command
-        
+    stable = max(set(prediction_buffer), key=prediction_buffer.count)
+
+    # 🔥 HANDLE COMMANDS
+    if stable == "DELETE":
+        if last_confirmed_letter != "DELETE":
+            current_sentence = current_sentence[:-1]
+            last_confirmed_letter = "DELETE"
+        prediction_buffer.clear()
+        return current_sentence
+
+    if stable == "RESET":
+        current_sentence = ""
+        prediction_buffer.clear()
+        return current_sentence
+
+    # 🔥 ADD LETTER ONLY IF NEW
+    if stable != last_confirmed_letter:
+        current_sentence += stable
+        last_confirmed_letter = stable
+        prediction_buffer.clear()
+
     return current_sentence
 
