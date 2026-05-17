@@ -25,7 +25,7 @@ export default function Alphabet() {
 
   useEffect(() => {
     if (testMode && masteryCount === 26) {
-      const duration = 3 * 1000;
+      const duration = 3 * 1001;
       const end = Date.now() + duration;
       const frame = () => {
         confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#22c55e', '#3b82f6'] });
