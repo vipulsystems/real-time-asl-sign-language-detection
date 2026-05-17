@@ -18,7 +18,7 @@ Designed as a real-world AI application for assistive communication and human-co
 
 ## Live Demo
 
-Live demo coming soon (deployment in progress, we are working on it.)
+Live demo coming soon (deployment in progress.)
 
 ---
 
