@@ -4,7 +4,7 @@ Real-time AI-powered gesture recognition
 Built with TensorFlow, FastAPI, and React  
 Converts sign language into text and speech instantly  
 
-An AI-powered system that uses computer vision and deep learning to recognize American Sign Language (ASL) gestures in real time and convert them into text and speech.
+An AI powered system that uses computer vision and deep learning to recognize American Sign Language (ASL) gestures in real time and convert them into text and speech.
 
 Designed as a real-world AI application for assistive communication and human-computer interaction.
 
@@ -18,7 +18,7 @@ Designed as a real-world AI application for assistive communication and human-co
 
 ## Live Demo
 
-Live demo coming soon (deployment in progress)
+Live demo coming soon (deployment in progress, we are working on it.)
 
 ---
 
