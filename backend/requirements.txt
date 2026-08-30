@@ -4,22 +4,22 @@
 
 fastapi==0.110.0
 uvicorn==0.27.1
-python-multipart==0.0.9
+python-multipart==0.0.31
 
 # ============================
 # AI / ML
 # ============================
 
-tensorflow==2.10.1
+tensorflow==2.12.1
 mediapipe==0.10.9
 
 # ============================
 # Computer Vision
 # ============================
 
-opencv-python==4.7.0.72
+opencv-python==4.8.1.78
 numpy==1.23.5
-pillow==10.2.0
+pillow==12.3.0
 
 # ============================
 # Text to Speech
@@ -31,5 +31,5 @@ gTTS==2.5.1
 # TensorFlow Compatibility
 # ============================
 
-protobuf==3.20.3
+protobuf==5.29.6
 h5py==3.8.0
